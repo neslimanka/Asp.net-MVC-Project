@@ -1,0 +1,93 @@
+﻿
+@model  TabimApplication.Models.Model.Request
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Talep Ekle</h2>
+
+<div class="form">
+   
+    <form class="form-validate form-horizontal" id="create_form" method="post" action="/Request/Create/" enctype="multipart/form-data">
+
+
+
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">RequestName <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="RequestName" name="RequestName" type="text" required />
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">RequestSurname <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="RequestSurname" name="RequestSurname" minlength="5" type="text" required />
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">RequestDescription <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="RequestDescription" name="RequestDescription" minlength="5" type="text" />
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <label for="DocumentPath" class="control-label col-lg-2">DocumentPath <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input id="DocumentPath" name="DocumentPath" accept="jpg, .jpeg, .png, .pdf, .doc, .docx" type="file" onchange="kontrol(this);" multiple required />
+                
+
+            </div>
+        </div>
+        @if (Session["AuthorizationId"].ToString() == "1")
+        {
+
+            <div class="form-group ">
+                <label for="ccomment" class="control-label col-lg-2">Feedback</label>
+                <div class="col-lg-10">
+                    <textarea class="form-control " id="FeedBack" name="FeedBack" required></textarea>
+                </div>
+            </div>
+
+        }
+        <br />
+
+
+        <div class="col-lg-offset-2 col-lg-10">
+
+            <button class="btn btn-primary" type="submit">  Kaydet </button>
+            <button class="btn btn-default" type="button"><a href="/Request/Index">İptal </a> </button>
+        </div>
+
+
+    </form>
+  
+    <img src="~/Uploads/Hizmet/features-1.png" class="weather-deneme2" />
+</div>
+
+
+@*<script>
+
+    $(document).ready(function () {
+        var fileName = document.querySelector('#file1').value;
+        var extension = fileName.substring(fileName.lastIndexOf('.') + 1);
+        document.querySelector('.output').textContent = extension;
+
+    })
+</script>*@
+
+<script>
+    function kontrol(input) {
+        if (input.files && input.files[0]) {
+          
+                
+                    resim.readAsDataURL(input.files[0]);
+                }
+            }
+        }
+    
+</script>

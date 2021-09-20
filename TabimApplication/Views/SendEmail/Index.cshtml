@@ -1,0 +1,53 @@
+﻿
+
+
+@model TabimApplication.Models.Model.Contact
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "SendEmail", FormMethod.Post, new { id = "contactform" }))
+{
+
+    if (ViewBag.Success == true)
+    {
+        <span>Mesajınız başarıyla gönderilmiştir.</span>
+    }
+    <div class="container">
+        <div class="col-lg-6">
+            <div class="recent">
+                <h3>Send us a message</h3>
+            </div>
+            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <form action="" method="post" role="form" class="contactForm">
+                <div class="form-group">
+                    <input type="text" name="Name" class="form-control" id="Name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="Email" id="Email" placeholder="Your Email" data-rule="Email" data-msg="Please enter a valid email" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="ReceiveMail" id="ReceiveMail" placeholder=" To Email" data-rule="Email" data-msg="Please enter a valid email" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="Subject" id="Subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="Message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                    <div class="validation"></div>
+                </div>
+
+                <div class="text-center"><button type="submit" class="btn btn-primary btn-lg btn-danger">Send Message</button></div>
+            </form>
+        </div>
+
+    </div>
+}

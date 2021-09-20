@@ -1,0 +1,102 @@
+﻿
+@model  TabimApplication.Models.Model.Request
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 >Request Details</h2>
+<br />
+
+<div>
+
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestSurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestSurname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EvaluationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EvaluationTime)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssessmentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssessmentStatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FeedBack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeedBack)
+        </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.ResimURL)
+        </dt>
+
+        <dd>
+            <img src="@Model.ResimURL" width="150" height="150" />
+        </dd>*@
+
+    </dl>
+
+    <img src="~/Content/AdminLayout/img/contact.png" class="weather-deneme4">
+    
+</div>
+<div >
+     <p>
+    <button class="btn btn-default" > @Html.ActionLink("Düzenle ", "Edit", new { id = Model.RequestId })</button>
+     |
+    <button class="btn btn-default">@Html.ActionLink("Geri Dön", "Index")</button>
+     </p>
+</div>
+
+
+
+

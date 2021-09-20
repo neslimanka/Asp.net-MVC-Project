@@ -1,0 +1,140 @@
+﻿
+@model  List<TabimApplication.Models.Model.Request>
+    
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h2>Talepler</h2>
+
+<div>
+
+
+    @if (Session["AuthorizationId"].ToString() == "1")
+    {
+
+        <table class="table table-striped table-bordered dataTable" style=" width:100%" id="myTable1">
+
+            <thead>
+                <tr class="danger">
+
+                    <th>RequestName</th>
+                    <th>RequestSurname</th>
+                    <th>RequestDescription</th>
+                    <th>DocumentPath</th>
+                    <th>EvaluationTime</th>
+                    <th>AssessmentStatus</th>
+                    <th>FeedBack</th>
+
+                </tr>
+
+
+            </thead>
+            <tbody>
+                @{
+
+                    foreach (var data in Model)
+                    {
+                        <tr>
+
+
+                            <td>@data.RequestName</td>
+                            <td>@data.RequestSurname</td>
+                            <td>@data.RequestDescription</td>
+                            <td>@data.DocumentPath</td>
+                            <td>@data.EvaluationTime</td>
+                            <td>@data.AssessmentStatus</td>
+                            <td>@data.FeedBack</td>
+                            <td>
+                                <div class="btn-group">
+
+                                    <a href="/Request/Edit/@data.RequestId">Düzenle </a> | <a href="/Request/Delete/@data.RequestId"> Sil </a> |
+                                    <a href="/Request/Details/@data.RequestId"> Details </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+
+        </table>
+
+
+    }
+
+
+    else if (Session["AuthorizationId"].ToString() == "2")
+    {
+        <a class="btn btn-danger" href="/Request/Create/">Yeni Ekle</a>
+        <br />
+        <br />
+
+        <table class="table table-striped table-bordered dataTable " style=" width:100%" id="myTable">
+
+            <thead>
+                <tr class="danger">
+
+                    <th>RequestName</th>
+                    <th>RequestSurname</th>
+                    <th>RequestDescription</th>
+                    <th>DocumentPath</th>
+                    <th>AssessmentStatus</th>
+                    <th>FeedBack</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+                @{
+
+                    foreach (var data in Model)
+                    {
+                        <tr>
+
+
+
+                            <td>@data.RequestName</td>
+                            <td>@data.RequestSurname </td>
+                            <td>@Html.Raw(data.RequestDescription)</td>
+                            <td>
+                                @data.DocumentPath
+                                @*<a href="@item.DocumentPath">@item.DocumentPath</a>*@
+                            </td>
+                            <td>@data.AssessmentStatus</td>
+                            <td>@data.FeedBack</td>
+
+
+
+                            <td>
+                                <a href="/Request/Edit/@data.RequestId">Düzenle </a> | <a href="/Request/Delete/@data.RequestId"> Sil </a>
+
+                            </td>
+                        </tr>
+                    }
+
+
+                }
+            </tbody>
+        </table>
+
+
+    }
+
+        
+</div>
+@*<script type="text/javascript">
+    $(document).ready(function){
+        function checkFileExtension() {
+            var fileName = document.querySelector('#file1').value;
+            var extension = fileName.substring(fileName.lastIndexOf('.') + 1);
+            document.querySelector('.output').textContent = extension;
+        };
+    }
+    </script>*@

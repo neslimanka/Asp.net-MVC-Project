@@ -1,0 +1,102 @@
+﻿
+@model TabimApplication.Models.Model.User
+
+@{
+    ViewBag.Title = "Signup";
+    Layout = null;
+}
+
+
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="~/Content/AdminLayout/img/favicon.png">
+
+    <title>Register</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/AdminLayout/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="~/Content/AdminLayout/css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="~/Content/AdminLayout/css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="~/Content/AdminLayout/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="~/Content/AdminLayout/css/style.css" rel="stylesheet">
+    <link href="~/Content/AdminLayout/css/style-responsive.css" rel="stylesheet" />
+
+   
+</head>
+
+<body class="login-img3-body">
+
+    <div class="container">
+
+        @using (Html.BeginForm("Signup", "Home", FormMethod.Post, new { @class = "login-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="login-wrap">
+                <p class="login-img"><i class="icon_lock-open_alt"></i></p>
+                <div class="input-group">
+
+                    @Html.LabelFor(x => x.Name, new { @class = "sr-only" })
+                    <span class="input-group-addon"><i class="icon_profile"></i></span>
+
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Name" })
+                </div>
+                <div class="input-group">
+
+                    @Html.LabelFor(x => x.Surname, new { @class = "sr-only" })
+                    <span class="input-group-addon"><i class="icon_profile"></i></span>
+
+                    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control", placeholder = "Surname" })
+                </div>
+                <div class="input-group">
+
+                    @Html.LabelFor(x => x.Email, new { @class = "sr-only" })
+                    <span class="input-group-addon"><i class="icon_profile"></i></span>
+
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email" })
+                </div>
+                <div class="input-group">
+
+                    @Html.LabelFor(x => x.Telephone, new { @class = "sr-only" })
+                    <span class="input-group-addon"><i class="icon_profile"></i></span>
+
+                    @Html.TextBoxFor(x => x.Telephone, new { @class = "form-control", placeholder = "Gsm" })
+                </div>
+
+                <div class="input-group">
+
+                    @Html.LabelFor(x => x.Password, new { @class = "sr-only" })
+                    <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+
+                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Password", Type = "password" })
+                </div>
+                @*<div class="input-group">
+
+                        @Html.LabelFor(x => x.ConfirmPassword, new { @class = "sr-only" })
+                        <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+
+                        @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", placeholder = "Şifre Tekrar", Type = "password" })
+                    </div>*@
+
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Kayıt Ol</button>
+
+            </div>
+
+        }
+
+    </div>
+
+
+</body>
+
+</html>
